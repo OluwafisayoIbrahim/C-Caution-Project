@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="520" viewBox="0 0 920 520">
+<title>C-Caution project block diagram</title>
+<rect width="920" height="520" fill="#ffffff"/>
+<defs><marker id="a" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#374151"/></marker></defs>
+<g font-family="Arial, sans-serif" text-anchor="middle" font-size="16" fill="#111827">
+<rect x="330" y="20" width="260" height="80" rx="12" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+<text x="460" y="52">Arduino Uno (ATmega328P)</text><text x="460" y="76" font-size="13">stage control, green LEDs, fault handling</text>
+
+<rect x="40" y="160" width="230" height="70" rx="10" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
+<text x="155" y="190">NE555 astable</text><text x="155" y="212" font-size="13">~5.8 Hz; 4.7k pull-up on output</text>
+
+<rect x="40" y="290" width="230" height="70" rx="10" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
+<text x="155" y="320">CD4017 counter</text><text x="155" y="342" font-size="13">Q0..Q9, reset held by Arduino</text>
+
+<rect x="40" y="410" width="230" height="80" rx="10" fill="#fee2e2" stroke="#dc2626" stroke-width="2"/>
+<text x="155" y="436">10 N-MOSFET group drivers</text><text x="155" y="458" font-size="13">each sinks 5 red LEDs (~50 total)</text>
+
+<rect x="320" y="290" width="290" height="70" rx="10" fill="#fee2e2" stroke="#dc2626" stroke-width="2"/>
+<text x="465" y="320">P-MOSFET, high side</text><text x="465" y="342" font-size="13">powers the red LED rail (D10, active low)</text>
+
+<rect x="650" y="290" width="230" height="80" rx="10" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+<text x="765" y="320">12 green LEDs (the "C")</text><text x="765" y="342" font-size="13">one Arduino pin each, top to bottom</text>
+</g>
+<g fill="none" stroke="#374151" stroke-width="2.2" marker-end="url(#a)">
+<path d="M375 100 V130 H110 V160"/>
+<path d="M330 60 H14 V325 H40"/>
+<path d="M155 230 V290"/>
+<path d="M155 360 V410"/>
+<path d="M520 100 V130 H765 V290"/>
+<path d="M440 100 V250 H465 V290"/>
+<path d="M320 325 H295 V450 H270"/>
+<path d="M270 195 H370 V100"/>
+</g>
+<g font-family="Arial, sans-serif" fill="#374151" font-size="12">
+<text x="240" y="124">D8 enable (555 pin 4)</text>
+<text x="162" y="268">clock to pin 14</text>
+<text x="168" y="392">Q0..Q9 to gates</text>
+<text x="690" y="122">D3-D7, D11, D12, A0-A4</text>
+<text x="478" y="262">D10</text>
+<text x="300" y="186">D2 clock sense</text>
+<text x="34" y="52" text-anchor="start">D9: CD4017 reset (pin 15)</text>
+</g>
+</svg>

@@ -1,0 +1,21 @@
+Ref,Part,Value,Quantity,Details
+U1,Arduino Uno / ATmega328P,,1,Wired as ARDUINO. Simulator or real board
+U2,NE555 (bipolar),,1,Wired as NE555. Astable oscillator; see notes for the CMOS alternative
+U3,CD4017,,1,"Wired as CD4017. Decade counter, Q0..Q9"
+QN1-QN10,N-channel logic-level MOSFET,2N7000 or equivalent,10,One per red group; sinks 5 LEDs; gate driven directly by CD4017 Qn
+QP1,P-channel logic-level MOSFET,,1,High-side red supply switch; pick a part with Rds(on) specified at Vgs = -4.5 V
+DRED1-DRED50,Red LED,,50,10 groups x 5; interleaved around the triangle
+DGREEN1-DGREEN12,Green LED,,12,"Letter C, top to bottom"
+R1,Resistor,4.7k,1,555 RA
+R2,Resistor,10k,1,555 RB
+C1,Capacitor,10uF,1,555 timing capacitor (non-polarised or low-leakage preferred)
+C2,Capacitor,10nF,1,555 control pin (pin 5)
+C3-C4,Capacitor,100nF,2,Decoupling at NE555 and CD4017 supply pins
+C5,Capacitor,100uF,1,Bulk capacitor across the 5 V rail
+RRED1-RRED50,Resistor,330,50,One series resistor PER red LED
+RGREEN1-RGREEN12,Resistor,330,12,One series resistor per green LED
+RPU555,Resistor,4.7k,1,Pull-up on 555 output (pin 3) for conservative CD4017 clock-level margin
+RPD555,Resistor,10k,1,Pull-down on 555 RESET (pin 4): 555 stays off until the Arduino enables it
+RPDRST,Resistor,100k,1,Pull-down on CD4017 RESET (pin 15) while the Arduino boots
+RPG,Resistor,100k,1,Pull-up on QP1 gate: red supply stays off until the Arduino drives D10 low
+SUPPLY,Regulated 5V supply,,1,USB or regulated 5 V; see docs/DESIGN_NOTES.md for the current budget
